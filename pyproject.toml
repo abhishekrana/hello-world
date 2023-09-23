@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "hello-world"
+version = "0.1.0"
+description = "Hello World"
+authors = ["Abhishek Rana <abhishekrana502@gmail.com>"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "0.103.1"
+uvicorn = "^0.23.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "23.7.0"
+mypy = "1.5.0"
+ruff = "0.0.284"
+types-requests = "2.31.0.2"
+
+[tool.black]
+line-length = 120
+
+[tool.mypy]
+files = ["src/**/*.py"]
+exclude = ["src/tests"]
+warn_unused_ignores = false
+pretty = true
+strict = true
+
+[tool.ruff]
+src = ["src"]
+line-length = 120
+
+[tool.ruff.isort]
+known-first-party = ["src"]
+
+[tool.ruff.pydocstyle]
+convention = "google"
